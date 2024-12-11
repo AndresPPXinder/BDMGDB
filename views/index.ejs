@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+    <h1>Lista de Usuarios</h1>
+
+    <!-- Botón para crear un nuevo usuario -->
+    <a href="/create">
+        <button type="button">Crear Usuario</button>
+    </a>
+
+    <form method="GET" action="/buscar">
+        <input type="text" name="nombre" value="<%= nombre %>" placeholder="Buscar por nombre">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <ul>
+        <% if (users && users.length > 0) { %>
+            <% users.forEach(user => { %>
+                <li><%= user.name %> - <%= user.email %> - <%= user.age %> años</li>
+            <% }); %>
+        <% } else { %>
+            <li>No se encontraron usuarios.</li>
+        <% } %>
+    </ul>
+</body>
+</html>
